@@ -1,0 +1,49 @@
+bulk insert bronze.crm_cust_info
+from "C:\Users\Arsany\Desktop\cust_info.csv"
+with (
+      firstrow=2,
+	  fieldterminator=',',
+	  tablock
+);
+
+bulk insert [bronze].[crm_prd_info]
+from "C:\Users\Arsany\Desktop\prd_info.csv"
+with (
+      firstrow=2,
+	  fieldterminator=',',
+	  tablock
+);
+
+
+bulk insert  [bronze].[crm_sales_details]
+from "C:\Users\Arsany\Desktop\sales_details.csv"
+with (
+      firstrow=2,
+	  fieldterminator=',',
+	  tablock
+);
+
+
+bulk insert  [bronze].[erp_cust_az12]
+from "C:\Users\Arsany\Desktop\CUST_AZ12.csv"
+with (
+      firstrow=2,
+	  fieldterminator=',',
+	  tablock
+);
+
+bulk insert  [bronze].[erp_loc_a101]
+from "C:\Users\Arsany\Desktop\LOC_A101.csv"
+with (
+      firstrow=2,
+	  fieldterminator=',',
+	  tablock
+);
+
+bulk insert  [bronze].[erp_px_cat_g1v2]
+from "C:\Users\Arsany\Desktop\PX_CAT_G1V2.csv"
+with (
+      firstrow=2,
+	  fieldterminator=',',
+	  tablock
+);
