@@ -16,7 +16,7 @@ This project builds a complete data pipeline from raw data ingestion to business
 The data architecture follows the **Medallion Architecture**, which organizes the pipeline into three logical layers: **Bronze (Raw)**, **Silver (Cleaned)**, and **Gold (Business-Ready)**.
 
 <p align="center">
-  <img src="images/architecture-diagram.png" alt="High Level Architecture" width="800"/>
+  <img src="docs/data_architecture.png" alt="High Level Architecture" width="800"/>
 </p>
 
 ### 🔸 Bronze Layer
