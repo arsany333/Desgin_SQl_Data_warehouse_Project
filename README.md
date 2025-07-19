@@ -1,122 +1,58 @@
-# 📊 Data Warehouse & Analytics Project (Medallion Architecture - SQL Server)
+# 📊 Data Warehouse & Analytics Project
 
-Welcome to the **Data Warehouse & Analytics Project** repository!  
-This project demonstrates a **modern data warehousing solution** using the **Medallion Architecture (Bronze, Silver, Gold)** in **SQL Server**. It is designed as a portfolio piece to showcase data engineering, ETL pipelines, and SQL-based analytics following industry best practices.
-
----
-
-## 🚀 Project Overview
-
-This project builds a complete data pipeline from raw data ingestion to business-ready insights. It simulates integrating data from **CRM** and **ERP** systems to support analytics and decision-making for sales, customers, and products.
+Welcome to the **Data Warehouse and Analytics Project**! 🚀  
+This project showcases a complete end-to-end **data warehousing and analytics solution**—from ingesting raw data to delivering business-ready insights using SQL Server. Designed as a **professional portfolio project**, it demonstrates industry-standard practices in **data engineering**, **ETL pipeline design**, **data modeling**, and **analytics reporting**.
 
 ---
 
 ## 🏗️ Data Architecture
 
-The data architecture follows the **Medallion Architecture**, which organizes the pipeline into three logical layers: **Bronze (Raw)**, **Silver (Cleaned)**, and **Gold (Business-Ready)**.
+The data architecture follows the **Medallion Architecture** pattern:
 
-<p align="center">
-  <img src="docs/data_architecture.png" alt="High Level Architecture" width="800"/>
-</p>
+![Data Architecture](docs/data_architecture.png)
 
-### 🔸 Bronze Layer
-- **Source**: CSV files from CRM & ERP systems
-- **Object Type**: Tables
-- **Load**: Batch processing, truncate & insert
-- **Transformations**: None (raw, as-is)
-- **Purpose**: Raw data storage for traceability and reproducibility
+### 🔸 Bronze Layer – *Raw Data Ingestion*
+- Ingests raw CSV files (ERP and CRM sources).
+- Loaded into SQL Server using `BULK INSERT`.
+- No transformations are applied to preserve source integrity.
 
-### ⚪ Silver Layer
-- **Object Type**: Tables
-- **Load**: Batch processing
-- **Transformations**:  
-  - Data cleansing  
-  - Standardization  
-  - Normalization  
-  - Enrichment  
-  - Derived columns
-- **Purpose**: Prepare and harmonize data for analytics
+### 🔹 Silver Layer – *Data Cleaning & Transformation*
+- Cleanses, standardizes, and integrates raw data.
+- Applies business rules, resolves data quality issues, and prepares for analytics.
 
-### 🟨 Gold Layer
-- **Object Type**: Views
-- **Transformations**:  
-  - Joins and integration  
-  - Aggregations  
-  - Business logic
-- **Data Models**:  
-  - Star schema  
-  - Flat tables  
-  - Aggregated tables
-- **Purpose**: Final model for reporting and decision-making
+### 🟡 Gold Layer – *Business-Ready Data*
+- Models data into a **Star Schema** using fact and dimension tables.
+- Optimized for reporting, dashboards, and decision-making.
 
 ---
 
-## 🔄 Data Lineage (Flow)
+## 📖 Project Scope
 
-This diagram illustrates how data flows through the architecture layers:
+This project covers the entire **data engineering lifecycle**:
 
-<p align="center">
-  <img src="images/data-lineage-diagram.png" alt="Data Flow Diagram" width="800"/>
-</p>
+1. ✅ **Data Architecture**  
+   - Design based on Bronze, Silver, and Gold layers.
 
-- Source CSV files → Bronze tables (raw data)
-- Bronze tables → Silver tables (cleaned data)
-- Silver tables → Gold views (`fact_sales`, `dim_customers`, `dim_products`)
+2. ⚙️ **ETL Pipelines**  
+   - Extract → Transform → Load process using SQL scripts.
 
----
+3. 🗂️ **Data Modeling**  
+   - Design and implementation of **Star Schema** with Fact & Dimension tables.
 
-## 🧠 Key Skills & Concepts
-
-✅ SQL Development (T-SQL)  
-✅ ETL Pipeline Design (Stored Procedures)  
-✅ Data Warehousing  
-✅ Medallion Architecture  
-✅ Dimensional Modeling (Star Schema)  
-✅ Data Cleansing & Standardization  
-✅ Analytics with SQL Views  
-✅ Git-Based Version Control
+4. 📈 **Analytics & Reporting**  
+   - Generate SQL-based business insights and KPIs.
 
 ---
 
-## 📊 Business Use Case
+## 👨‍💼 Who This Project is For
 
-The warehouse enables insights into:
-
-- 🧍‍♂️ **Customer Behavior**: Segment performance, active customers
-- 🛍 **Product Performance**: Best/worst selling products
-- 📈 **Sales Trends**: Monthly, quarterly trends and growth
-- 🗺 **Geographical Analysis**: Sales by location (if extended)
-
----
-
-## 🛠 Tools & Technologies
-
-| Tool                     | Purpose                                 |
-|--------------------------|-----------------------------------------|
-| **SQL Server Express**   | Relational database engine              |
-| **SSMS**                 | Query and data management GUI          |
-| **CSV Files**            | Simulated ERP & CRM source systems     |
-| **Draw.io**              | Architecture & data flow diagrams      |
-| **Git & GitHub**         | Source control and collaboration       |
+This project is ideal for those targeting roles like:
+- Data Engineer  
+- ETL Developer  
+- Data Architect  
+- SQL Developer  
+- Business Intelligence Analyst  
 
 ---
 
-## 📁 Project Structure
 
-```bash
-├── /images/                        # Diagrams (architecture + lineage)
-│   ├── architecture-diagram.png
-│   └── data-lineage-diagram.png
-├── /scripts/                       # SQL scripts (ETL and modeling)
-│   ├── 01_bronze_load.sql
-│   ├── 02_silver_transform.sql
-│   ├── 03_gold_modeling.sql
-│   └── 04_reporting_queries.sql
-├── /data/                          # Source CSV files
-│   ├── crm_cust_info.csv
-│   ├── crm_sales_details.csv
-│   ├── crm_prd_info.csv
-│   ├── erp_cust_az12.csv
-│   ├── erp_loc_a101.csv
-│   └── erp_px_cat_g1v2.csv
-├── README.md
